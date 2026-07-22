@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +32,7 @@ public class Cliente {
     @NotBlank(message = "O atributo Email é obrigatório!")
     @Email(message = "O atributo Email deve ser um e-mail válido!")
     @Size(max = 100, message = "O atributo Email deve ter no máximo 100 caracteres!")
+    @Column(length = 100)
     private String email;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.REMOVE)
